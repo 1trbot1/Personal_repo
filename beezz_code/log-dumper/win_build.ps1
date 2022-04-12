@@ -1,0 +1,2 @@
+py.exe -m PyInstaller --log-level CRITICAL --clean --distpath ".\exec\win" --specpath "%temp%\pytinstaller" -i "C:\Users\101\Documents\beecore\scripts\log-dumper\bld.ico" --workpath "%temp%\pytinstaller" --onefile --console -n ld ".\main.py"
+cp -Force -Recurse .\config  .\exec\win

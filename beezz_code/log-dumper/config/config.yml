@@ -1,0 +1,56 @@
+logs:
+  org_name: Organization Name Here
+  output_dir: ./dumps
+
+ssh:
+  #SSH username
+  username: root
+
+  # Use password or privet key authentication method.
+  # !!! Do not uncomment bouth values !!!
+  # password: beeZZbeeZZ
+  ssh_private_key: ./config/id_rsa
+
+  #SSH timeout in seconds
+  timeout: 1
+
+dockers:
+  #List of production docker containers names
+  containers: 
+    - pcrf_pcrf_1
+    - auth_auth_1
+    - ocs_ocs_1
+    - cdf_cdf_1
+    - logstash
+    - redis_broker_1
+    - sentinel_redis_1
+    - redis_redis_1
+
+cgs:
+  #List of CGS containers names 
+  cgs_containers:
+  - cgs_api_1
+  - bgp
+  - cgs_event-broker
+  - cgs_radius
+
+elk:
+  #Elasticsearch api authentication
+  elk_auth: True
+  elk_user: beezz
+  elk_pass: Kibana12@
+
+fg:
+  #Fortigate SSH credentials
+  fg_user: admin
+  fg_pass: Fgate12Fgate12
+
+bbsw:
+  #Back bone switch SSH credentials
+  bbws_user: beezz
+  bbsw_pass: aJHFA2UnZh6j4PFS
+
+pgw:
+  #PGW SSH credentials
+  pgw_user: admin
+  pgw_pass: admin

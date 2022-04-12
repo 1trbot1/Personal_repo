@@ -1,0 +1,15 @@
+class FileError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return self.value
+class SftpError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return self.value
+class SshError(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return self.value
