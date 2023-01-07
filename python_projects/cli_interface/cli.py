@@ -1,28 +1,16 @@
 #!/usr/bin/python3
-from os import path , get_terminal_size
-from tinydb import TinyDB , where
-from flask import Flask
-
-
-app = Flask('cli')
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
+from os import get_terminal_size
+from progress_bar import progressbar
+from localdb import localdb
 class cli:
     def __init__(self):
-        db_name = "api_db.json"
-        db_path = f"{path.dirname(path.abspath(__file__))}/{db_name}"
-        self.db = TinyDB(db_path)
         self.columns = get_terminal_size()[0]
     
-
-    def main(self,data):
-        for item in data:
-            if not self.db.search(where('name') == item['name']):
-                self.db.insert(item)
+    def main(self,db_name='localdb.json',init_data=None):
+        db = localdb.init(db_name=db_name,init_data=init_data)
         print('#'*self.columns)
-        # for item in self.db.all():
-            # print(f"\nName: {item['name']}\nAge: {item['age']}\nType: {item['type']}\n")
+        for item in db.all():
+            print(f"\nName: {item['name']}\nAge: {item['age']}\nType: {item['type']}\n")
         print('#'*self.columns)
-        # self.db.truncate() # Clean DB
+        db.truncate() # Clean DB
+        print(db.all())

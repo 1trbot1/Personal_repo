@@ -1,3 +1,7 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.analysis.extraPaths": [
+        "./python_projects/cli_interface",
+        "./python_projects/cli_interface"
+    ]
 }
